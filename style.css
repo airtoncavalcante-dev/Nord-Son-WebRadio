@@ -11,41 +11,42 @@
 
 
 
-/* TITULO DO SITE - BEGE DA IMAGEM */
+/* TITULO DO SITE - BEGE CLARO + FONTE IMPACTANTE */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@900&display=swap');
+
 .site-title {
   text-align: center;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   width: 100%;
   max-width: 760px;
 }
 
-
 .site-title h1 {
   margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 36px;
-  font-weight: 800;
-  color: #F5E8C7; /* COR BEGE DA SUA IMAGEM */
+  font-family: 'Anton', Impact, sans-serif; /* FONTE FORTE IGUAL DA IMAGEM SKY */
+  font-size: 48px;
+  font-weight: 400;
+  color: #FFFBEB; /* BEGE CLARO DA SUA IMAGEM - COR CORRIGIDA */
   letter-spacing: 2px;
   text-transform: uppercase;
-  text-shadow: 0 2px 0 #3e2723, 0 4px 10px rgba(0,0,0,0.5);
+  line-height: 1;
+  /* BRILHO VERMELHO IGUAL DA IMAGEM SKY MAX */
+    text-shadow: 0 2px 0 #000, 0 4px 8px rgba(0,0,0,0.8);
 }
 
 .site-title p {
-  margin: 4px 0 0;
-  font-family: 'Merriweather', serif;
-  font-size: 16px;
-  font-weight: 400;
-  font-style: italic;
-  color: #F5E8C7; /* MESMA COR BEGE */
+  margin: 6px 0 0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFBEB; /* BEGE CLARO DA SUA IMAGEM - COR CORRIGIDA */
   letter-spacing: 1px;
-  opacity: 0.9;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
 }
 
 @media (max-width: 600px) {
-  .site-title h1 { font-size: 26px; }
-  .site-title p { font-size: 13px; }
+  .site-title h1 { font-size: 32px; }
+  .site-title p { font-size: 12px; }
 }
 
 
