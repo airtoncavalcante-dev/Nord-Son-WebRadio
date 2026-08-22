@@ -3,99 +3,235 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hits do Rei WebRádio</title>
-  
-  <!-- Importa o CSS externo -->
+  <title>Hits do Rei WebRádio - A Rádio do Rei</title>
   <link rel="stylesheet" href="style.css">
-
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/airtoncavalcante-dev/hitsdoreiwebradio/refs/heads/main/Icone%20Hits%20do%20Rei2.png">
-  
-  
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/airtoncavalcante-dev/hitsdoreiwebradio/refs/heads/main/Icone%20Hits%20do%20Rei2.png">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Banner -->
-  <div class="banner">
-    <img src="https://raw.githubusercontent.com/airtoncavalcante-dev/hitsdoreiwebradio/refs/heads/main/banner%20tiger%201000x300px.png" alt="Banner Hits do Rei WebRádio"/>
-  </div>
+  <div class="page-wrapper">
 
-  <!-- Texto abaixo do banner -->
-<div class="banner-text">
-  Anúncios ou Publicidade Paga
-</div>
+    <!-- MANUAL DE INSTRUÇÕES NO LUGAR DA IMAGEM -->
+    <div class="info-card top-card instructions">
+      <h2> Como usar o Rádio</h2>
+      <ul>
+        <li><strong>1. SINTONIA:</strong> Clique no botão <b>SINTONIA</b> para abrir a lista com as rádios. E escolha uma rádio, ou use as setas <b>« »</b> para mudar de rádio. Depois de escolher, sempre clique em <b>LIGAR</b> para tocar a nova rádio.</li>
+        <li><strong>2. LIGAR:</strong> Aperte o botão <b>LIGAR</b> à direita para iniciar a rádio selecionada. Clique novamente para desligar.</li>
+        <li><strong>3. VOLUME / MUTAR:</strong> Aperte o botão <b>VOLUME</b> à esquerda para desligar ou ligar o volume.</li>
+      </ul>
+    </div>
 
-  <!-- Conteúdo principal -->
-  <div class="container">
-    <div class="topo">
-      <img src="https://raw.githubusercontent.com/airtoncavalcante-dev/hitsdoreiwebradio/refs/heads/main/Web%20Radio%20Hits%20do%20Rei%20Logo%20500x500.png" alt="Logo Hits do Rei WebRádio"/>
-      <div class="info">
-        <h1>Hits do Rei WebRádio</h1>
-        <p>Itaú / RN - Brasil</p>
-        <p class="sub">A Rádio do Rei</p>
+    <div class="radio-body" id="radioBody">
+      <div class="antenna"></div>
+      <div class="antenna-tip"></div>
+      <div class="wood-top"></div>
+
+      <div class="radio-front">
+        <div class="top-section">
+          <div class="speaker-box">
+            <div class="speaker-grill" id="speakerGrill">
+              <div class="grill-lines"></div>
+              <div class="speaker-cone"></div>
+            </div>
+            <div class="tocando-status" id="tocandoStatus">
+              <div class="led red" id="ledAudio"></div>
+              <span>Tocando</span>
+            </div>
+          </div>
+
+          <div class="dial-box">
+            <div class="dial-glass">
+              <div class="dial-light-red" id="dialLight"></div>
+
+              <div class="freq-band">
+                <label>FM</label>
+                <div class="freq-scale"><span>87,5</span><span>90</span><span>94</span><span>98</span><span>102</span><span>106</span><span>108 MHz</span></div>
+                <div class="freq-line"><i style="left:5%"></i><i style="left:20%"></i><i style="left:35%"></i><i style="left:50%"></i><i style="left:65%"></i><i style="left:80%"></i><i style="left:95%"></i></div>
+              </div>
+
+              <div class="freq-band">
+                <label>AM</label>
+                <div class="freq-scale"><span>535</span><span>700</span><span>900</span><span>1100</span><span>1300</span><span>1500</span><span>1705 kHz</span></div>
+                <div class="freq-line"><i style="left:5%"></i><i style="left:22%"></i><i style="left:38%"></i><i style="left:54%"></i><i style="left:70%"></i><i style="left:85%"></i><i style="left:95%"></i></div>
+              </div>
+
+              <div class="freq-band">
+                <label>SW</label>
+                <div class="freq-scale"><span>5.000</span><span>8.000</span><span>11.000</span><span>15.000</span><span>20.000 kHz</span></div>
+                <div class="freq-line"><i style="left:5%"></i><i style="left:30%"></i><i style="left:55%"></i><i style="left:78%"></i><i style="left:95%"></i></div>
+              </div>
+
+              <div class="dial-needle" id="dialNeedle"></div>
+            </div>
+
+            <div class="display">
+              <div class="led green" id="ledPower"></div>
+              <p class="station-name" id="stationNameDisplay">Hits do Rei WebRádio</p>
+              <p class="station-freq" id="stationFreqDisplay">Selecione a sintonia</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-section">
+          <div class="knob-group">
+            <div class="knob volume-knob" id="knobVolume"><div class="knob-dot"></div></div>
+            <span>VOLUME<br><small id="volumeText">80%</small></span>
+          </div>
+          <div class="center-controls">
+            <button class="ctrl-btn" id="btnPrev">«</button>
+            <button class="ctrl-btn sintonia-btn" id="btnSintonia">≡ SINTONIA</button>
+            <button class="ctrl-btn" id="btnNext">»</button>
+          </div>
+          <div class="knob-group">
+            <div class="knob power-knob" id="knobPower"><div class="knob-dot"></div></div>
+            <span>LIGAR<br><small id="powerText">OFF</small></span>
+          </div>
+        </div>
+
+        <div class="radio-feet"><div class="foot"></div><div class="foot"></div><div class="foot"></div><div class="foot"></div></div>
       </div>
     </div>
 
-    <div class="player">
-      <audio id="playerAudio" controls autoplay>
-        <source src="https://stream.zeno.fm/erbpkq1cz55vv" type="audio/mpeg"/>
-        Seu navegador não suporta o player de áudio.
-      </audio>
+    <div class="sintonia-drawer" id="sintoniaDrawer">
+      <div class="drawer-header"><h3>Selecione a Sintonia</h3><button id="closeDrawer">X</button></div>
+      <div class="drawer-list" id="radioList"></div>
     </div>
+    <div class="overlay" id="overlay"></div>
 
-    <div class="extra-info">
-      <p><strong>No ar:</strong> Músicas do Rei</p>
-      <p><strong>Horário:</strong> 24h</p>
-
-      <h2>Informações da rádio</h2>
-      <p><strong>Segmentos:</strong> Romântica, Popular, MPB</p>
-      <p><strong>Cidade:</strong> Itaú</p>
-      <p><strong>Região:</strong> Oeste Potiguar</p>
-      <p><strong>Estado:</strong> Rio Grande do Norte</p>
-      <p><strong>País:</strong> Brasil</p>
-    </div>
-
-
-
-    <h2>Outras Rádios</h2>
-<div class="outras-radios">
-
-  <p class="radio-nome">Rádio Julio Iglesias</p>
-  <a href="https://direct.croonerradio.fr/croonerradio-julioiglesias-midfi.mp3" target="_blank" class="btn-player">Player</a>
-
-  <p class="radio-nome">Rádio Love Songs</p>
-  <a href="https://stream.zeno.fm/r6p9zyrgofbvv" target="_blank" class="btn-player">Player</a>
-
-  <p class="radio-nome">Rádio Minha Vida 107.9 FM - Martins / RN - Brasil</p>
-  <a href="https://euroticast5.euroti.com.br:8238/stream" target="_blank" class="btn-player">Player</a>
-
-  <p class="radio-nome">Rádio Cidade 104.9 FM - Itaú / RN - Brasil</p>
-  <a href="http://suc20.streaminghd.net.br:9356/stream" target="_blank" class="btn-player">Player</a>
-
-  <p class="radio-nome">Rádio Mundial 102.9 FM - Pau dos Ferros / RN - Brasil</p>
-  <a href="https://play.wisestream.io/mundialpaudosferros" target="_blank" class="btn-player">Player</a>
-
-  <p class="radio-nome">Rádio Rural 101.9 FM - Mossoró / RN - Brasil<br><span class="sub">A Rádio de Mossoró</span></p>
-  <a href="https://radio.saopaulo01.com.br:10945/stream" target="_blank" class="btn-player">Player</a>
-
-  <p class="radio-nome">Rádio 98 FM - Vale do Apodi / RN - Brasil</p>
-  <a href="https://radio.titcm.com.br/listen/radio_98_fm/98fm" target="_blank" class="btn-player">Player</a>
-
-  <p class="radio-nome">Rádio Nacional 980 AM - Brasília / DF - Brasil</p>
-  <a href="https://radionacionalbrasilia-stream.ebc.com.br/NACIONAL_AM_BRASILIA-mp4a_212000_eng=20000.m3u8" target="_blank" class="btn-player">Player</a>
-
-  <p class="radio-nome">Rádio Sociedade 97.9 FM - Salvador / BA - Brasil</p>
-  <a href="https://radio01.zas.media:8022/stream" target="_blank" class="btn-player">Player</a>
-
-</div>
-
-
-
-
-    
-    <footer>
-             <p>&copy; Desenvolvido por Cavalcante Tecnology - 2026
-    </footer>
+    <footer><p>&copy; Desenvolvido por Cavalcante Tecnology - 2026</p></footer>
   </div>
 
+  <audio id="mainAudio" preload="none"></audio>
+
+<script>
+const radios = [
+  { nome: "Hits do Rei WebRádio", sub: "A Rádio do Rei - Principal", url: "https://stream.zeno.fm/erbpkq1cz55vv", freq: "98.5 FM", pos: 50 },
+  { nome: "Rádio Julio Iglesias", sub: "Crooner Radio", url: "https://direct.croonerradio.fr/croonerradio-julioiglesias-midfi.mp3", freq: "102.1 FM", pos: 65 },
+  { nome: "Rádio Love Songs", sub: "Romântica", url: "https://stream.zeno.fm/r6p9zyrgofbvv", freq: "93.7 FM", pos: 35 },
+  { nome: "Rádio Minha Vida 107.9 FM", sub: "Martins / RN", url: "https://euroticast5.euroti.com.br:8238/stream", freq: "107.9 FM", pos: 95 },
+  { nome: "Rádio Cidade 104.9 FM", sub: "Itaú / RN", url: "http://suc20.streaminghd.net.br:9356/stream", freq: "104.9 FM", pos: 78 },
+  { nome: "Rádio Mundial 102.9 FM", sub: "Pau dos Ferros / RN", url: "https://play.wisestream.io/mundialpaudosferros", freq: "102.9 FM", pos: 70 },
+  { nome: "Rádio Rural 101.9 FM", sub: "Mossoró / RN", url: "https://radio.saopaulo01.com.br:10945/stream", freq: "101.9 FM", pos: 62 },
+  { nome: "Rádio 98 FM", sub: "Vale do Apodi / RN", url: "https://radio.titcm.com.br/listen/radio_98_fm/98fm", freq: "98.0 FM", pos: 48 },
+  { nome: "Rádio Nacional 980 AM", sub: "Brasília / DF - 980 AM", url: "https://radionacionalbrasilia-stream.ebc.com.br/NACIONAL_AM_BRASILIA-mp4a_212000_eng=20000.m3u8", freq: "980 kHz", pos: 42 },
+  { nome: "Rádio Sociedade 97.9 FM", sub: "Salvador / BA", url: "https://radio01.zas.media:8022/stream", freq: "97.9 FM", pos: 47 }
+];
+
+const audio = document.getElementById('mainAudio');
+const knobPower = document.getElementById('knobPower');
+const knobVolume = document.getElementById('knobVolume');
+const btnSintonia = document.getElementById('btnSintonia');
+const drawer = document.getElementById('sintoniaDrawer');
+const overlay = document.getElementById('overlay');
+const radioListEl = document.getElementById('radioList');
+const stationNameDisplay = document.getElementById('stationNameDisplay');
+const stationFreqDisplay = document.getElementById('stationFreqDisplay');
+const ledPower = document.getElementById('ledPower');
+const ledAudio = document.getElementById('ledAudio');
+const tocandoStatus = document.getElementById('tocandoStatus');
+const radioBody = document.getElementById('radioBody');
+const speakerGrill = document.getElementById('speakerGrill');
+const powerText = document.getElementById('powerText');
+const volumeText = document.getElementById('volumeText');
+const dialNeedle = document.getElementById('dialNeedle');
+
+let currentRadioIndex = 0;
+let isPlaying = false;
+let volume = 0.8;
+let isMuted = false;
+audio.volume = volume;
+
+radios.forEach((r, i) => {
+  const div = document.createElement('div');
+  div.className = `drawer-item ${i===0? 'active' : ''}`;
+  div.innerHTML = `<strong>${r.nome}</strong><small>${r.sub} • ${r.freq}</small>`;
+  div.onclick = () => selectRadio(i);
+  radioListEl.appendChild(div);
+});
+
+function selectRadio(index) {
+  currentRadioIndex = index;
+  const r = radios[index];
+  stationNameDisplay.textContent = r.nome;
+  stationFreqDisplay.textContent = r.sub + ' • ' + r.freq;
+  dialNeedle.style.left = r.pos + '%';
+  document.querySelectorAll('.drawer-item').forEach((el, idx) => el.classList.toggle('active', idx === index));
+  if(isPlaying) stopRadio();
+  closeDrawerFunc();
+}
+
+function playRadio() {
+  const r = radios[currentRadioIndex];
+  if(audio.src!== r.url) audio.src = r.url;
+  audio.play().then(() => {
+    isPlaying = true;
+    isMuted = false;
+    audio.muted = false;
+    volumeText.textContent = Math.round(volume*100) + '%';
+    radioBody.classList.add('is-playing');
+    speakerGrill.classList.add('vibrating');
+    tocandoStatus.classList.add('active');
+    ledPower.classList.add('on');
+    ledAudio.classList.add('on');
+    powerText.textContent = 'ON';
+    powerText.style.color = '#4eff4e';
+  }).catch(e => { alert('Clique em LIGAR novamente para liberar o áudio.'); });
+}
+
+function stopRadio() {
+  audio.pause();
+  isPlaying = false;
+  radioBody.classList.remove('is-playing');
+  speakerGrill.classList.remove('vibrating');
+  tocandoStatus.classList.remove('active');
+  ledPower.classList.remove('on');
+  ledAudio.classList.remove('on');
+  powerText.textContent = 'OFF';
+  powerText.style.color = '';
+}
+
+knobPower.addEventListener('click', () => { isPlaying? stopRadio() : playRadio(); });
+
+let isDraggingVolume = false;
+knobVolume.addEventListener('mousedown', () => isDraggingVolume = true);
+window.addEventListener('mouseup', () => isDraggingVolume = false);
+window.addEventListener('mousemove', (e) => {
+  if(!isDraggingVolume) return;
+  volume -= e.movementY * 0.01;
+  volume = Math.min(1, Math.max(0, volume));
+  audio.volume = volume;
+  if(volume>0 && isMuted) { isMuted=false; audio.muted=false; if(isPlaying){ speakerGrill.classList.add('vibrating'); tocandoStatus.classList.add('active'); ledAudio.classList.add('on'); } }
+  volumeText.textContent = Math.round(volume*100) + '%';
+  knobVolume.style.transform = `rotate(${volume * 270 - 135}deg)`;
+});
+
+knobVolume.addEventListener('click', (e) => {
+  // evita conflito com drag
+  if(isDraggingVolume) return;
+  if(isMuted){
+    audio.muted=false; isMuted=false;
+    volumeText.textContent=Math.round(volume*100)+'%';
+    if(isPlaying){ speakerGrill.classList.add('vibrating'); tocandoStatus.classList.add('active'); ledAudio.classList.add('on'); }
+  } else {
+    audio.muted=true; isMuted=true;
+    volumeText.textContent='MUDO';
+    speakerGrill.classList.remove('vibrating');
+    tocandoStatus.classList.remove('active');
+    ledAudio.classList.remove('on');
+  }
+});
+
+function openDrawer(){ drawer.classList.add('open'); overlay.classList.add('show'); }
+function closeDrawerFunc(){ drawer.classList.remove('open'); overlay.classList.remove('show'); }
+btnSintonia.addEventListener('click', openDrawer);
+document.getElementById('closeDrawer').addEventListener('click', closeDrawerFunc);
+overlay.addEventListener('click', closeDrawerFunc);
+document.getElementById('btnPrev').addEventListener('click', () => selectRadio((currentRadioIndex - 1 + radios.length) % radios.length));
+document.getElementById('btnNext').addEventListener('click', () => selectRadio((currentRadioIndex + 1) % radios.length));
+
+knobVolume.style.transform = `rotate(${volume * 270 - 135}deg)`;
+selectRadio(0);
+</script>
 </body>
 </html>
