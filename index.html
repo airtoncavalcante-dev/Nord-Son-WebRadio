@@ -59,7 +59,7 @@
           <div class="led green" id="ledPower"></div>
           <div class="display-texts">
             <span class="display-name" id="stationNameDisplay">Nord Son WebRádio</span>
-            <span class="display-sub" id="stationSubDisplay">A Rádio do Rei - Principal • 98.5 FM</span>
+            <span class="display-sub" id="stationSubDisplay">A Rádio do Rei - 98.5 FM</span>
           </div>
           <div class="led red" id="ledAudio"></div>
         </div>
@@ -95,16 +95,19 @@
 
 <script>
 const radios = [
-  { nome: "Hits do Rei WebRádio", sub: "A Rádio do Rei - Principal", freq: "98.5 FM", url: "https://stream.zeno.fm/erbpkq1cz55vv", pos: 52 },
-  { nome: "Rádio Julio Iglesias", sub: "Crooner Radio", freq: "102.1 FM", url: "https://direct.croonerradio.fr/croonerradio-julioiglesias-midfi.mp3", pos: 65 },
-  { nome: "Rádio Love Songs", sub: "Romântica", freq: "93.7 FM", url: "https://stream.zeno.fm/r6p9zyrgofbvv", pos: 38 },
+
   { nome: "Rádio Minha Vida 107.9 FM", sub: "Martins / RN", freq: "107.9 FM", url: "https://euroticast5.euroti.com.br:8238/stream", pos: 92 },
   { nome: "Rádio Cidade 104.9 FM", sub: "Itaú / RN", freq: "104.9 FM", url: "http://suc20.streaminghd.net.br:9356/stream", pos: 76 },
   { nome: "Rádio Mundial 102.9 FM", sub: "Pau dos Ferros / RN", freq: "102.9 FM", url: "https://play.wisestream.io/mundialpaudosferros", pos: 68 },
   { nome: "Rádio Rural 101.9 FM", sub: "Mossoró / RN", freq: "101.9 FM", url: "https://radio.saopaulo01.com.br:10945/stream", pos: 60 },
   { nome: "Rádio 98 FM", sub: "Vale do Apodi / RN", freq: "98.0 FM", url: "https://radio.titcm.com.br/listen/radio_98_fm/98fm", pos: 50 },
   { nome: "Rádio Nacional 980 AM", sub: "Brasília / DF", freq: "980 kHz", url: "https://radionacionalbrasilia-stream.ebc.com.br/NACIONAL_AM_BRASILIA-mp4a_212000_eng=20000.m3u8", pos: 45 },
-  { nome: "Rádio Sociedade 97.9 FM", sub: "Salvador / BA", freq: "97.9 FM", url: "https://radio01.zas.media:8022/stream", pos: 48 }
+  { nome: "Rádio Sociedade 97.9 FM", sub: "Salvador / BA", freq: "97.9 FM", url: "https://radio01.zas.media:8022/stream", pos: 48 },
+
+    { nome: "Hits do Rei WebRádio", sub: "A Rádio do Rei ", freq: "98.5 FM", url: "https://stream.zeno.fm/erbpkq1cz55vv", pos: 52 },
+  { nome: "Rádio Julio Iglesias", sub: "Crooner Radio", freq: "102.1 FM", url: "https://direct.croonerradio.fr/croonerradio-julioiglesias-midfi.mp3", pos: 65 },
+  { nome: "Rádio Love Songs", sub: "Romântica", freq: "93.7 FM", url: "https://stream.zeno.fm/r6p9zyrgofbvv", pos: 38 }
+  
 ];
 const audio=document.getElementById('mainAudio'), needleFM=document.getElementById('needleFM'), needleAM=document.getElementById('needleAM'), knobPower=document.getElementById('knobPower'), knobFaixas=document.getElementById('knobFaixas'), drawer=document.getElementById('sintoniaDrawer'), overlay=document.getElementById('overlay'), radioListEl=document.getElementById('radioList'), stationNameDisplay=document.getElementById('stationNameDisplay'), stationSubDisplay=document.getElementById('stationSubDisplay'), ledPower=document.getElementById('ledPower'), ledAudio=document.getElementById('ledAudio'), speakerGrill=document.getElementById('speakerGrill'), powerText=document.getElementById('powerText');
 let current=0,isPlaying=false,faixasRot=0,powerRot=0; audio.volume=0.85;
