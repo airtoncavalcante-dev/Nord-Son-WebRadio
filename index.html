@@ -6,104 +6,98 @@
   <title>Nord Son WebRádio</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/airtoncavalcante-dev/hitsdoreiwebradio/refs/heads/main/Icone%20Hits%20do%20Rei2.png">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-
   <div class="page-wrapper">
+    <div class="site-title">
+      <h1>Nord Son WebRádio</h1>
+      <p>O rádio que toca tudo!!!</p>
+    </div>
 
-
-<!-- TITULO NOVO - ADICIONE AQUI -->
-<div class="site-title">
-  <h1>Nord Son WebRádio</h1>
-  <p>O rádio que toca tudo !!!</p>
-</div>
-    
-    
-
-    <!-- MANUAL DE INSTRUÇÕES NO LUGAR DA IMAGEM -->
     <div class="info-card top-card instructions">
       <h2> Como usar o Rádio</h2>
       <ul>
-        <li><strong>1. LIGAR:</strong> Aperte o botão <b>LIGAR</b> à direita para iniciar a rádio selecionada. Clique novamente para desligar.</li>
-        <li><strong>2. SINTONIA:</strong> Clique no botão <b>SINTONIA</b> para abrir a lista com as rádios. E escolha uma rádio, ou use as setas <b>« »</b> para mudar de rádio. Depois de escolher, sempre clique em <b>LIGAR</b> para tocar a nova rádio.</li>
-        <li><strong>3. VOLUME / MUTAR:</strong> Aperte o botão <b>VOLUME</b> à esquerda para desligar ou ligar o volume.</li>
+        <li><strong>1. FAIXAS:</strong> Clique em FAIXAS para abrir a lista - já inicia automático.</li>
+        <li><strong>2. SINTONIA:</strong> Gira e vai para próxima rádio - já inicia automático.</li>
+        <li><strong>3. LIGAR DESLIGAR:</strong> Liga e desliga.</li>
+        <li><strong>4. VOLUME:</strong> Muta e desmuta.</li>
       </ul>
     </div>
 
-    <div class="radio-body" id="radioBody">
-      <div class="antenna"></div>
-      <div class="antenna-tip"></div>
-      <div class="wood-top"></div>
+    <div class="radio-nordson" id="radioBody">
+      <div class="nord-body">
+        <div class="nord-frame-outer">
 
-      <div class="radio-front">
-        <div class="top-section">
-          <div class="speaker-box">
-            <div class="speaker-grill" id="speakerGrill">
-              <div class="grill-lines"></div>
-              <div class="speaker-cone"></div>
+          <div class="nord-top">
+            <div class="grill-nordson">
+              <!-- FALANTE REDONDO IGUAL SUA FOTO - BEM POUCO ESTICADO -->
+              <div class="speaker-new" id="speakerGrill">
+                <div class="speaker-glow-edge"></div>
+              </div>
             </div>
-            <div class="tocando-status" id="tocandoStatus">
-              <div class="led red" id="ledAudio"></div>
+            <div class="nord-logo-badge">Nord-Son</div>
+          </div>
+
+          <div class="tocando-bar">
+            <div class="tocando-below" id="tocandoStatus">
+              <div class="led-nord red" id="ledAudio"></div>
               <span>Tocando</span>
             </div>
           </div>
 
-          <div class="dial-box">
-            <div class="dial-glass">
-              <div class="dial-light-red" id="dialLight"></div>
+          <div class="gold-strip"></div>
 
-              <div class="freq-band">
-                <label>FM</label>
-                <div class="freq-scale"><span>87,5</span><span>90</span><span>94</span><span>98</span><span>102</span><span>106</span><span>108 MHz</span></div>
-                <div class="freq-line"><i style="left:5%"></i><i style="left:20%"></i><i style="left:35%"></i><i style="left:50%"></i><i style="left:65%"></i><i style="left:80%"></i><i style="left:95%"></i></div>
+          <div class="nord-bottom-blue">
+            <div class="knobs-left">
+              <div class="knob-unit">
+                <span class="knob-label">LIGAR<br>DESLIGAR</span>
+                <div class="knob-nord" id="knobPower"><div class="knob-nord-inner"></div><div class="knob-mark"></div></div>
+                <small id="powerText">OFF</small>
               </div>
-
-              <div class="freq-band">
-                <label>AM</label>
-                <div class="freq-scale"><span>535</span><span>700</span><span>900</span><span>1100</span><span>1300</span><span>1500</span><span>1705 kHz</span></div>
-                <div class="freq-line"><i style="left:5%"></i><i style="left:22%"></i><i style="left:38%"></i><i style="left:54%"></i><i style="left:70%"></i><i style="left:85%"></i><i style="left:95%"></i></div>
+              <div class="knob-unit">
+                <span class="knob-label">VOLUME</span>
+                <div class="knob-nord" id="knobVolume"><div class="knob-nord-inner"></div><div class="knob-mark"></div></div>
+                <small id="volumeText">80%</small>
               </div>
-
-              <div class="freq-band">
-                <label>SW</label>
-                <div class="freq-scale"><span>5.000</span><span>8.000</span><span>11.000</span><span>15.000</span><span>20.000 kHz</span></div>
-                <div class="freq-line"><i style="left:5%"></i><i style="left:30%"></i><i style="left:55%"></i><i style="left:78%"></i><i style="left:95%"></i></div>
-              </div>
-
-              <div class="dial-needle" id="dialNeedle"></div>
             </div>
 
-            <div class="display">
-              <div class="led green" id="ledPower"></div>
-              <p class="station-name" id="stationNameDisplay">Hits do Rei WebRádio</p>
-              <p class="station-freq" id="stationFreqDisplay">Selecione a sintonia</p>
+            <div class="nord-dial-center-blue">
+              <div class="dial-header">
+                <span class="brand-nord-left">Nord-son</span>
+                <span class="brand-nord-right">Nord-son</span>
+              </div>
+              <div class="freq-board" id="freqBoard">
+                <div class="freq-row"><div class="freq-label">FM</div><div class="freq-track"><div class="freq-numbers"><span>87,5</span><span>92</span><span>98</span><span>102</span><span>108 MHz</span></div><div class="freq-bar"></div></div><div class="freq-unit">MHz</div></div>
+                <div class="freq-row"><div class="freq-label">AM</div><div class="freq-track"><div class="freq-numbers"><span>535</span><span>800</span><span>1100</span><span>1400</span><span>1705 kHz</span></div><div class="freq-bar"></div></div><div class="freq-unit">kHz</div></div>
+                <div class="freq-row"><div class="freq-label">SW</div><div class="freq-track"><div class="freq-numbers"><span>5.9</span><span>9</span><span>12</span><span>15</span><span>20 MHz</span></div><div class="freq-bar"></div></div><div class="freq-unit">MHz</div></div>
+                <div class="single-needle-long" id="singleNeedle"></div>
+              </div>
+              <div class="display-nord">
+                <div class="led-nord green" id="ledPower"></div>
+                <div class="display-text"><span id="stationNameDisplay">Nord Son WebRádio</span><small id="stationSubDisplay">A Rádio do Rei - Principal • 98.5 FM</small></div>
+              </div>
+            </div>
+
+            <div class="knobs-right">
+              <div class="knob-unit">
+                <span class="knob-label">SINTONIA</span>
+                <div class="knob-nord rotate-btn" id="knobSintonia"><div class="knob-nord-inner"></div><div class="knob-mark"></div></div>
+                <small>PRÓXIMA</small>
+              </div>
+              <div class="knob-unit">
+                <span class="knob-label">FAIXAS</span>
+                <div class="knob-nord" id="knobFaixas"><div class="knob-nord-inner"></div><div class="knob-mark"></div></div>
+                <small>LISTA</small>
+              </div>
             </div>
           </div>
         </div>
-
-        <div class="bottom-section">
-          <div class="knob-group">
-            <div class="knob volume-knob" id="knobVolume"><div class="knob-dot"></div></div>
-            <span>VOLUME<br><small id="volumeText">80%</small></span>
-          </div>
-          <div class="center-controls">
-            <button class="ctrl-btn" id="btnPrev">«</button>
-            <button class="ctrl-btn sintonia-btn" id="btnSintonia">≡ SINTONIA</button>
-            <button class="ctrl-btn" id="btnNext">»</button>
-          </div>
-          <div class="knob-group">
-            <div class="knob power-knob" id="knobPower"><div class="knob-dot"></div></div>
-            <span>LIGAR<br><small id="powerText">OFF</small></span>
-          </div>
-        </div>
-
-        <div class="radio-feet"><div class="foot"></div><div class="foot"></div><div class="foot"></div><div class="foot"></div></div>
       </div>
     </div>
 
     <div class="sintonia-drawer" id="sintoniaDrawer">
-      <div class="drawer-header"><h3>Selecione a Sintonia</h3><button id="closeDrawer">X</button></div>
+      <div class="drawer-header"><h3>Selecione a Faixa / Rádio</h3><button id="closeDrawer">X</button></div>
       <div class="drawer-list" id="radioList"></div>
     </div>
     <div class="overlay" id="overlay"></div>
@@ -115,131 +109,102 @@
 
 <script>
 const radios = [
-  { nome: "Hits do Rei WebRádio", sub: "A Rádio do Rei - Principal", url: "https://stream.zeno.fm/erbpkq1cz55vv", freq: "98.5 FM", pos: 50 },
-  { nome: "Rádio Julio Iglesias", sub: "Crooner Radio", url: "https://direct.croonerradio.fr/croonerradio-julioiglesias-midfi.mp3", freq: "102.1 FM", pos: 65 },
-  { nome: "Rádio Love Songs", sub: "Romântica", url: "https://stream.zeno.fm/r6p9zyrgofbvv", freq: "93.7 FM", pos: 35 },
-  { nome: "Rádio Minha Vida 107.9 FM", sub: "Martins / RN", url: "https://euroticast5.euroti.com.br:8238/stream", freq: "107.9 FM", pos: 95 },
-  { nome: "Rádio Cidade 104.9 FM", sub: "Itaú / RN", url: "http://suc20.streaminghd.net.br:9356/stream", freq: "104.9 FM", pos: 78 },
-  { nome: "Rádio Mundial 102.9 FM", sub: "Pau dos Ferros / RN", url: "https://play.wisestream.io/mundialpaudosferros", freq: "102.9 FM", pos: 70 },
-  { nome: "Rádio Rural 101.9 FM", sub: "Mossoró / RN", url: "https://radio.saopaulo01.com.br:10945/stream", freq: "101.9 FM", pos: 62 },
-  { nome: "Rádio 98 FM", sub: "Vale do Apodi / RN", url: "https://radio.titcm.com.br/listen/radio_98_fm/98fm", freq: "98.0 FM", pos: 48 },
-  { nome: "Rádio Nacional 980 AM", sub: "Brasília / DF - 980 AM", url: "https://radionacionalbrasilia-stream.ebc.com.br/NACIONAL_AM_BRASILIA-mp4a_212000_eng=20000.m3u8", freq: "980 kHz", pos: 42 },
-  { nome: "Rádio Sociedade 97.9 FM", sub: "Salvador / BA", url: "https://radio01.zas.media:8022/stream", freq: "97.9 FM", pos: 47 }
+  { nome: "Hits do Rei WebRádio", sub: "A Rádio do Rei - Principal", freq: "98.5 FM", url: "https://stream.zeno.fm/erbpkq1cz55vv", pos: 52 },
+  { nome: "Rádio Julio Iglesias", sub: "Crooner Radio", freq: "102.1 FM", url: "https://direct.croonerradio.fr/croonerradio-julioiglesias-midfi.mp3", pos: 65 },
+  { nome: "Rádio Love Songs", sub: "Romântica", freq: "93.7 FM", url: "https://stream.zeno.fm/r6p9zyrgofbvv", pos: 38 },
+  { nome: "Rádio Minha Vida 107.9 FM", sub: "Martins / RN", freq: "107.9 FM", url: "https://euroticast5.euroti.com.br:8238/stream", pos: 92 },
+  { nome: "Rádio Cidade 104.9 FM", sub: "Itaú / RN", freq: "104.9 FM", url: "http://suc20.streaminghd.net.br:9356/stream", pos: 76 },
+  { nome: "Rádio Mundial 102.9 FM", sub: "Pau dos Ferros / RN", freq: "102.9 FM", url: "https://play.wisestream.io/mundialpaudosferros", pos: 68 },
+  { nome: "Rádio Rural 101.9 FM", sub: "Mossoró / RN", freq: "101.9 FM", url: "https://radio.saopaulo01.com.br:10945/stream", pos: 60 },
+  { nome: "Rádio 98 FM", sub: "Vale do Apodi / RN", freq: "98.0 FM", url: "https://radio.titcm.com.br/listen/radio_98_fm/98fm", pos: 50 },
+  { nome: "Rádio Nacional 980 AM", sub: "Brasília / DF", freq: "980 kHz", url: "https://radionacionalbrasilia-stream.ebc.com.br/NACIONAL_AM_BRASILIA-mp4a_212000_eng=20000.m3u8", pos: 45 },
+  { nome: "Rádio Sociedade 97.9 FM", sub: "Salvador / BA", freq: "97.9 FM", url: "https://radio01.zas.media:8022/stream", pos: 48 }
 ];
 
 const audio = document.getElementById('mainAudio');
 const knobPower = document.getElementById('knobPower');
 const knobVolume = document.getElementById('knobVolume');
-const btnSintonia = document.getElementById('btnSintonia');
+const knobSintonia = document.getElementById('knobSintonia');
+const knobFaixas = document.getElementById('knobFaixas');
 const drawer = document.getElementById('sintoniaDrawer');
 const overlay = document.getElementById('overlay');
 const radioListEl = document.getElementById('radioList');
 const stationNameDisplay = document.getElementById('stationNameDisplay');
-const stationFreqDisplay = document.getElementById('stationFreqDisplay');
+const stationSubDisplay = document.getElementById('stationSubDisplay');
 const ledPower = document.getElementById('ledPower');
 const ledAudio = document.getElementById('ledAudio');
-const tocandoStatus = document.getElementById('tocandoStatus');
 const radioBody = document.getElementById('radioBody');
 const speakerGrill = document.getElementById('speakerGrill');
+const tocandoStatus = document.getElementById('tocandoStatus');
 const powerText = document.getElementById('powerText');
 const volumeText = document.getElementById('volumeText');
-const dialNeedle = document.getElementById('dialNeedle');
+const singleNeedle = document.getElementById('singleNeedle');
 
-let currentRadioIndex = 0;
-let isPlaying = false;
-let volume = 0.8;
-let isMuted = false;
+let currentRadioIndex = 0, isPlaying = false, volume = 0.8, isMuted = false;
 audio.volume = volume;
 
 radios.forEach((r, i) => {
   const div = document.createElement('div');
   div.className = `drawer-item ${i===0? 'active' : ''}`;
   div.innerHTML = `<strong>${r.nome}</strong><small>${r.sub} • ${r.freq}</small>`;
-  div.onclick = () => selectRadio(i);
+  div.onclick = () => { selectRadio(i, true); };
   radioListEl.appendChild(div);
 });
 
-function selectRadio(index) {
+function selectRadio(index, autoPlay = false) {
   currentRadioIndex = index;
   const r = radios[index];
   stationNameDisplay.textContent = r.nome;
-  stationFreqDisplay.textContent = r.sub + ' • ' + r.freq;
-  dialNeedle.style.left = r.pos + '%';
+  stationSubDisplay.textContent = `${r.sub} • ${r.freq}`;
+  singleNeedle.style.left = r.pos + '%';
   document.querySelectorAll('.drawer-item').forEach((el, idx) => el.classList.toggle('active', idx === index));
   if(isPlaying) stopRadio();
-  closeDrawerFunc();
+  if(autoPlay) { closeDrawerFunc(); setTimeout(() => playRadio(), 300); } else { closeDrawerFunc(); }
 }
 
 function playRadio() {
   const r = radios[currentRadioIndex];
   if(audio.src!== r.url) audio.src = r.url;
   audio.play().then(() => {
-    isPlaying = true;
-    isMuted = false;
-    audio.muted = false;
+    isPlaying = true; isMuted = false; audio.muted = false;
     volumeText.textContent = Math.round(volume*100) + '%';
     radioBody.classList.add('is-playing');
     speakerGrill.classList.add('vibrating');
     tocandoStatus.classList.add('active');
-    ledPower.classList.add('on');
-    ledAudio.classList.add('on');
-    powerText.textContent = 'ON';
-    powerText.style.color = '#4eff4e';
-  }).catch(e => { alert('Clique em LIGAR novamente para liberar o áudio.'); });
+    ledPower.classList.add('on'); ledAudio.classList.add('on');
+    powerText.textContent = 'ON'; powerText.style.color = '#00ff00';
+  }).catch(e => { alert('Clique em LIGAR DESLIGAR novamente.'); });
 }
 
 function stopRadio() {
-  audio.pause();
-  isPlaying = false;
+  audio.pause(); isPlaying = false;
   radioBody.classList.remove('is-playing');
   speakerGrill.classList.remove('vibrating');
   tocandoStatus.classList.remove('active');
-  ledPower.classList.remove('on');
-  ledAudio.classList.remove('on');
-  powerText.textContent = 'OFF';
-  powerText.style.color = '';
+  ledPower.classList.remove('on'); ledAudio.classList.remove('on');
+  powerText.textContent = 'OFF'; powerText.style.color = '';
 }
 
 knobPower.addEventListener('click', () => { isPlaying? stopRadio() : playRadio(); });
-
-let isDraggingVolume = false;
-knobVolume.addEventListener('mousedown', () => isDraggingVolume = true);
-window.addEventListener('mouseup', () => isDraggingVolume = false);
-window.addEventListener('mousemove', (e) => {
-  if(!isDraggingVolume) return;
-  volume -= e.movementY * 0.01;
-  volume = Math.min(1, Math.max(0, volume));
-  audio.volume = volume;
-  if(volume>0 && isMuted) { isMuted=false; audio.muted=false; if(isPlaying){ speakerGrill.classList.add('vibrating'); tocandoStatus.classList.add('active'); ledAudio.classList.add('on'); } }
-  volumeText.textContent = Math.round(volume*100) + '%';
-  knobVolume.style.transform = `rotate(${volume * 270 - 135}deg)`;
+knobVolume.addEventListener('click', () => {
+  if(isMuted){ audio.muted=false; isMuted=false; volumeText.textContent=Math.round(volume*100)+'%'; if(isPlaying){ speakerGrill.classList.add('vibrating'); tocandoStatus.classList.add('active'); ledAudio.classList.add('on'); } }
+  else { audio.muted=true; isMuted=true; volumeText.textContent='MUDO'; speakerGrill.classList.remove('vibrating'); tocandoStatus.classList.remove('active'); ledAudio.classList.remove('on'); }
 });
 
-knobVolume.addEventListener('click', (e) => {
-  if(isDraggingVolume) return;
-  if(isMuted){
-    audio.muted=false; isMuted=false;
-    volumeText.textContent=Math.round(volume*100)+'%';
-    if(isPlaying){ speakerGrill.classList.add('vibrating'); tocandoStatus.classList.add('active'); ledAudio.classList.add('on'); }
-  } else {
-    audio.muted=true; isMuted=true;
-    volumeText.textContent='MUDO';
-    speakerGrill.classList.remove('vibrating');
-    tocandoStatus.classList.remove('active');
-    ledAudio.classList.remove('on');
-  }
+let sintoniaRotation = 0;
+knobSintonia.addEventListener('click', () => {
+  sintoniaRotation += 180;
+  knobSintonia.style.transform = `rotate(${sintoniaRotation}deg)`;
+  const nextIndex = (currentRadioIndex + 1) % radios.length;
+  selectRadio(nextIndex, true);
 });
 
 function openDrawer(){ drawer.classList.add('open'); overlay.classList.add('show'); }
 function closeDrawerFunc(){ drawer.classList.remove('open'); overlay.classList.remove('show'); }
-btnSintonia.addEventListener('click', openDrawer);
+knobFaixas.addEventListener('click', openDrawer);
 document.getElementById('closeDrawer').addEventListener('click', closeDrawerFunc);
 overlay.addEventListener('click', closeDrawerFunc);
-document.getElementById('btnPrev').addEventListener('click', () => selectRadio((currentRadioIndex - 1 + radios.length) % radios.length));
-document.getElementById('btnNext').addEventListener('click', () => selectRadio((currentRadioIndex + 1) % radios.length));
-
-knobVolume.style.transform = `rotate(${volume * 270 - 135}deg)`;
-selectRadio(0);
+selectRadio(0, false);
 </script>
 </body>
 </html>
