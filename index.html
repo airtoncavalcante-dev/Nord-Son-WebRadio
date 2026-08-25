@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>Nord Son WebRádio</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/airtoncavalcante-dev/hitsdoreiwebradio/refs/heads/main/Icone%20Hits%20do%20Rei2.png">
@@ -55,21 +55,12 @@
 
             <div class="buttons-below">
               <div class="btn-group left">
-                <div class="knob-nord nord-original" id="knobPower">
-                  <div class="knob-mark"></div>
-                </div>
-                <div class="btn-label-side">
-                  <strong>LIGAR</strong><span>DESLIGAR</span><small id="powerText">OFF</small>
-                </div>
+                <div class="knob-nord nord-original" id="knobPower"><div class="knob-mark"></div></div>
+                <div class="btn-label-side"><strong>LIGAR</strong><span>DESLIGAR</span><small id="powerText">OFF</small></div>
               </div>
-
               <div class="btn-group right">
-                <div class="btn-label-side right-text">
-                  <strong>FAIXAS</strong><span>LISTA</span>
-                </div>
-                <div class="knob-nord nord-original" id="knobFaixas">
-                  <div class="knob-mark"></div>
-                </div>
+                <div class="btn-label-side right-text"><strong>FAIXAS</strong><span>LISTA</span></div>
+                <div class="knob-nord nord-original" id="knobFaixas"><div class="knob-mark"></div></div>
               </div>
             </div>
           </div>
@@ -85,7 +76,7 @@
     <footer><p>&copy; Desenvolvido por Cavalcante Tecnology - 2026</p></footer>
   </div>
 
-  <audio id="mainAudio" preload="none"></audio>
+  <audio id="mainAudio" preload="none" playsinline webkit-playsinline crossorigin="anonymous"></audio>
 
 <script>
 const radios = [
@@ -93,13 +84,16 @@ const radios = [
   { nome: "Rádio Julio Iglesias", sub: "Crooner Radio", freq: "102.1 FM", url: "https://direct.croonerradio.fr/croonerradio-julioiglesias-midfi.mp3", pos: 65 },
   { nome: "Rádio Love Songs", sub: "Romântica", freq: "93.7 FM", url: "https://stream.zeno.fm/r6p9zyrgofbvv", pos: 38 },
   { nome: "Rádio Minha Vida 107.9 FM", sub: "Martins / RN", freq: "107.9 FM", url: "https://euroticast5.euroti.com.br:8238/stream", pos: 92 },
-  { nome: "Rádio Cidade 104.9 FM", sub: "Itaú / RN", freq: "104.9 FM", url: "http://suc20.streaminghd.net.br:9356/stream", pos: 76 },
+  // FIX iPHONE: era http://suc20... agora https
+  { nome: "Rádio Cidade 104.9 FM", sub: "Itaú / RN", freq: "104.9 FM", url: "https://s20.streaminghd.net.br:9356/stream", pos: 76 },
   { nome: "Rádio Mundial 102.9 FM", sub: "Pau dos Ferros / RN", freq: "102.9 FM", url: "https://play.wisestream.io/mundialpaudosferros", pos: 68 },
   { nome: "Rádio Rural 101.9 FM", sub: "Mossoró / RN", freq: "101.9 FM", url: "https://radio.saopaulo01.com.br:10945/stream", pos: 60 },
-  { nome: "Rádio 98 FM", sub: "Vale do Apodi / RN", freq: "98.0 FM", url: "https://radio.titcm.com.br/listen/radio_98_fm/98fm", pos: 50 },
+  // FIX iPHONE: link mais estável https
+  { nome: "Rádio 98 FM", sub: "Vale do Apodi / RN", freq: "98.0 FM", url: "https://s02.transmissaodigital.com:7096/stream", pos: 50 },
   { nome: "Rádio Nacional 980 AM", sub: "Brasília / DF", freq: "980 kHz", url: "https://radionacionalbrasilia-stream.ebc.com.br/NACIONAL_AM_BRASILIA-mp4a_212000_eng=20000.m3u8", pos: 45 },
   { nome: "Rádio Sociedade 97.9 FM", sub: "Salvador / BA", freq: "97.9 FM", url: "https://radio01.zas.media:8022/stream", pos: 48 }
 ];
+
 const audio = document.getElementById('mainAudio');
 const knobPower = document.getElementById('knobPower');
 const knobFaixas = document.getElementById('knobFaixas');
@@ -137,7 +131,6 @@ function selectRadio(index, autoPlay = false) {
   else { faixasRotation += 60; }
   knobFaixas.style.transform = `rotate(${faixasRotation}deg)`;
   lastPos = newPos;
-
   currentRadioIndex = index;
   const r = radios[index];
   stationNameDisplay.textContent = r.nome;
@@ -151,18 +144,24 @@ function selectRadio(index, autoPlay = false) {
 function playRadio() {
   const r = radios[currentRadioIndex];
   if(audio.src!== r.url) audio.src = r.url;
-  audio.play().then(() => {
-    isPlaying = true;
-    powerRotation = 75;
-    knobPower.style.transform = `rotate(${powerRotation}deg)`;
-    radioBody.classList.add('is-playing');
-    speakerGrill.classList.add('vibrating');
-    tocandoStatus.classList.add('active');
-    ledPower.classList.add('on');
-    ledAudio.classList.add('on');
-    powerText.textContent = 'ON';
-    powerText.style.color = '#00ff00';
-  }).catch(() => { alert('Clique em LIGAR DESLIGAR novamente.'); });
+  // iPhone precisa de play dentro de clique do usuário
+  const playPromise = audio.play();
+  if(playPromise){
+    playPromise.then(() => {
+      isPlaying = true;
+      powerRotation = 75;
+      knobPower.style.transform = `rotate(${powerRotation}deg)`;
+      radioBody.classList.add('is-playing');
+      speakerGrill.classList.add('vibrating');
+      tocandoStatus.classList.add('active');
+      ledPower.classList.add('on');
+      ledAudio.classList.add('on');
+      powerText.textContent = 'ON';
+      powerText.style.color = '#00ff00';
+    }).catch(() => {
+      alert('No iPhone toque em LIGAR DESLIGAR para liberar o áudio.');
+    });
+  }
 }
 
 function stopRadio() {
